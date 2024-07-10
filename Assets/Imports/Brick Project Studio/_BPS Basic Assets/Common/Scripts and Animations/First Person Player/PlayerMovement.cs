@@ -7,17 +7,19 @@ namespace SojaExiles
 {
     public class PlayerMovement : MonoBehaviour
     {
+        [SerializeField]
+        private float speed = 5f;
+        private float gravity = -15f;
 
-        public CharacterController controller;
+        private Vector3 velocity;
 
-        public float speed = 5f;
-        public float gravity = -15f;
+        private CharacterController controller;
 
-        Vector3 velocity;
+        void Awake()
+        {
+            controller = GetComponent<CharacterController>();
+        }
 
-        bool isGrounded;
-
-        // Update is called once per frame
         void Update()
         {
 
